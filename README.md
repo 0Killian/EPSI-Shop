@@ -1,6 +1,7 @@
 # epsi_shop
 
 A new Flutter project.
+**APKs are available on the artifacts tab.**
 
 ## Getting Started
 
