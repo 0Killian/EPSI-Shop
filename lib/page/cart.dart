@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:epsi_shop/components/cart_article_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -64,30 +65,7 @@ class CartPage extends StatelessWidget {
                         ]),
                     Flexible(
                         child: Center(
-                            child: ListView.builder(
-                                itemCount: cart.items.length,
-                                itemBuilder: (context, index) => ListTile(
-                                      leading: Image.network(
-                                          cart.items[index].imageUrl,
-                                          width: 50,
-                                          height: 50),
-                                      title: Text(cart.items[index].name),
-                                      subtitle:
-                                          Text(cart.items[index].priceInEuros),
-                                      trailing: TextButton(
-                                          onPressed: () =>
-                                              cart.removeItem(index),
-                                          child: Text(
-                                            "Supprimer",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge!
-                                                .copyWith(
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .error),
-                                          )),
-                                    )))),
+                            child: CartArticleList(cart: cart))),
                     FilledButton(
                       onPressed: cart.itemCount == 0 ? null : () => _checkout(cart,
                           ScaffoldMessenger.of(context), Theme.of(context)),

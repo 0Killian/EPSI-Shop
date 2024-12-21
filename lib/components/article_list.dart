@@ -13,24 +13,23 @@ class ArticleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        for (var article in _articles)
+    return ListView.builder(
+      itemCount: _articles.length,
+      itemBuilder: (context, index) =>
           Card(
             child: ListTile(
-              leading: Image.network(article.imageUrl,
+              leading: Image.network(_articles[index].imageUrl,
                   width: 50, height: 50),
-              title: Text(article.name),
+              title: Text(_articles[index].name),
               subtitle: Text(
-                article.description,
+                _articles[index].description,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              trailing: Text(article.priceInEuros),
-              onTap: () => {context.go("/article", extra: article)},
+              trailing: Text(_articles[index].priceInEuros),
+              onTap: () => {context.go("/article", extra: _articles[index])},
             ),
           ),
-      ],
     );
   }
 }

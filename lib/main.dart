@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => Cart(),
       child: MaterialApp.router(
-          title: 'Flutter Demo',
+          title: 'EPSI Shop',
           theme: ThemeData(
             // This is the theme of your application.
             //
